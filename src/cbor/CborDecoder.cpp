@@ -9,10 +9,11 @@
 */
 #include "CborDecoder.h"
 
-static CBORMessageDecoderClass* singleton = nullptr;
-CBORMessageDecoderClass& CBORMessageDecoder = CBORMessageDecoderClass::getInstance();
+static CBORMessageDecoderClass* singleton;
+// CBORMessageDecoderClass& CBORMessageDecoder = CBORMessageDecoderClass::getInstance();
+// CBORMessageDecoderClass CBORMessageDecoder;
 
-Decoder::Status CBORMessageDecoderClass::decode(Message* msg, const uint8_t* const buf, size_t &len) { // TODO do we need to propagate the maximum length?
+Decoder::Status CBORMessageDecoderClass::decode(Message* msg, const uint8_t* const buf, size_t &len) {
   // prepare cbor structure
   CborValue iter;
   CborTag tag;

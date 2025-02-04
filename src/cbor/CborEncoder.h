@@ -17,12 +17,10 @@
 
 class CBORMessageEncoderClass;
 
-
 // TODO find a better name
 // TODO maybe a template<CBORTag tag, MessageId id> ?
 // TODO maybe template<resultStruct> that is also the parameter of encode
 // TODO in order to make this more extensible we should not pass Message* as a parameter, templated function may be better (or void*)
-// providing both id and tag gives the ability to convert and avoid using a conversion function
 class CBORMessageEncoderInterface {
 public:
   CBORMessageEncoderInterface(const CBORTag tag, const MessageId id);
@@ -41,10 +39,8 @@ private:
   Encoder::Status _encode(CborEncoder* encoder, Message *msg);
 };
 
-// TODO make a private constructor?
 class CBORMessageEncoderClass: public Encoder {
 public:
-CBORMessageEncoderClass() {}
   static CBORMessageEncoderClass& getInstance();
 
   void append(CBORTag id, CBORMessageEncoderInterface* encoder) {
@@ -53,6 +49,8 @@ CBORMessageEncoderClass() {}
 
   Encoder::Status encode(Message* message, uint8_t * data, size_t& len);
 private:
+  // CBORMessageEncoderClass() {}
+
   std::map<MessageId, CBORMessageEncoderInterface*> encoders;
 };
 

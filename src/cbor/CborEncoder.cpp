@@ -10,7 +10,7 @@
 #include "CborEncoder.h"
 
 static CBORMessageEncoderClass* singleton = nullptr;
-CBORMessageEncoderClass& CBORMessageEncoder = CBORMessageEncoderClass::getInstance();
+// CBORMessageEncoderClass& CBORMessageEncoder = CBORMessageEncoderClass::getInstance();
 
 Encoder::Status CBORMessageEncoderClass::encode(Message* message, uint8_t * data, size_t& len) { // TODO do we need to propagate the maximum length?
   // prepare cbor structure
