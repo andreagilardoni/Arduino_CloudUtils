@@ -9,7 +9,7 @@
 */
 #pragma once
 
-#include <map>
+#include <unordered_map>
 #include "../interfaces/Encoder.h"
 #include "CBOR.h"
 #include "../interfaces/message.h"
@@ -52,8 +52,7 @@ public:
 private:
   CBORMessageEncoderSingleton() {}
 
-  static CBORMessageEncoderSingleton singleton;
-  std::map<MessageId, CBORMessageEncoderInterface*> encoders;
+  std::unordered_map<MessageId, CBORMessageEncoderInterface*> encoders;
 };
 
 class CBORMessageEncoder: public Encoder {
