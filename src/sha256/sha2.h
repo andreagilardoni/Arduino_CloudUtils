@@ -51,10 +51,10 @@ typedef struct {
     uint32_t h[8];
 } sha256_ctx;
 
-void sha256_init(sha256_ctx * ctx);
-void sha256_update(sha256_ctx *ctx, const uint8_t *message, uint64_t len);
-void sha256_final(sha256_ctx *ctx, uint8_t *digest);
-void sha256(const uint8_t *message, uint64_t len, uint8_t *digest);
+void acu_sha256_init(sha256_ctx * ctx);
+void acu_sha256_update(sha256_ctx *ctx, const uint8_t *message, uint64_t len);
+void acu_sha256_final(sha256_ctx *ctx, uint8_t *digest);
+void acu_sha256(const uint8_t *message, uint64_t len, uint8_t *digest);
 
 #ifdef __cplusplus
 }
